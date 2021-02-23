@@ -13,9 +13,7 @@ app.config["PROPAGATE_EXCEPTIONS"] = True
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.sqlite"
 
 
-@app.before_first_request
-def create_table():
-    db.create_all()
+
 
 
 
