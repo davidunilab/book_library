@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 from flask_restful import Api
 from flask_jwt import JWT, jwt_required, current_identity
 from security import authenticate, identity
@@ -19,7 +19,12 @@ def create_table():
 
 
 
-@app.route('/')
+@app.route("/")
+def home():
+    return redirect("https://github.com/davidunilab/book_library"), 302
+
+
+@app.route('/user')
 @jwt_required()
 def greetings():
     return f"Hello, {current_identity}"
